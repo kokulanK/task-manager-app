@@ -126,24 +126,24 @@
 
 Register Page
 
-<img src="https://github.com/user-attachments/assets/493ef453-fa34-4f3e-b885-fca2d6effc3a" width="800" /><br>
+<img src="https://github.com/user-attachments/assets/e2097651-7eea-4c08-ad2e-a1e7627037c7" width="800" /><br>
 
 Login Page
 
-<img src="https://github.com/user-attachments/assets/80d9edad-4b6a-49ae-86b2-96b8e666365b" width="800" /><br>
+<img src="https://github.com/user-attachments/assets/a7cb2e4b-e84a-4f1c-9513-a2c733aca2f7" width="800" /><br>
 
 
 Task Page 1
 
-<img src="https://github.com/user-attachments/assets/fa72165d-fd51-467f-a818-0528ad36950f" width="800" /><br>
+<img src="https://github.com/user-attachments/assets/733c6289-e788-49fb-bca3-fd96a939b33e" width="800" /><br>
 
 Task Page 2
 
-<img src="https://github.com/user-attachments/assets/f48182a7-cb34-402c-a1af-e809520240f1" width="800" /><br>
+<img src="https://github.com/user-attachments/assets/2e5dc7b8-fd2a-45bc-b7b2-913dee65a686" width="800" /><br>
 
 Profile Page
 
-<img src="https://github.com/user-attachments/assets/e26b5a9f-c9f9-4616-a86a-006fd4a181ed" width="800" /><br>
+<img src="https://github.com/user-attachments/assets/56db84d3-2e53-4124-81d0-e828cce2eb64" width="800" /><br>
 
   ##  📊 Database Schema
 
