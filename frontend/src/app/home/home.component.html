@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-2 d-md-block sidebar">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/home"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              Dashboard
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/profile"
+              routerLinkActive="active"
+            >
+              Profile
+            </a>
+          </li>
+
+          <!-- Logout Button (just below profile) -->
+          <li class="nav-item mt-3 px-2">
+            <button class="logout-btn" (click)="logout($event)">
+              Logout
+            </button>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="col-md-10 ms-sm-auto px-md-4">
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+      >
+        <h1 class="h2">Welcome, {{ currentUserName }}</h1>
+      </div>
+
+      <app-task-list></app-task-list>
+    </main>
+  </div>
+</div>

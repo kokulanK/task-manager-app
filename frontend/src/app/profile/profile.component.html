@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <div class="row">
+    
+    <!-- Sidebar -->
+    <nav class="col-md-2 d-md-block sidebar">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active">
+              Dashboard
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/profile" routerLinkActive="active">
+              Profile
+            </a>
+          </li>
+
+          <!-- Logout styled like Home -->
+          <li class="nav-item mt-3 px-2">
+            <button class="logout-btn" (click)="logout($event)">
+              Logout
+            </button>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="col-md-10 ms-sm-auto px-md-4">
+      <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Profile</h1>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <div class="card">
+            <div class="card-body p-4">
+
+              <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+                <div class="mb-3">
+                  <label class="form-label">Full Name</label>
+                  <input type="text" class="form-control" formControlName="name"
+                    [class.is-invalid]="f['name'].invalid && f['name'].touched">
+                  <div class="invalid-feedback" *ngIf="f['name'].invalid && f['name'].touched">
+                    Name is required.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" class="form-control" formControlName="email" readonly>
+                  <small class="text-muted">Email cannot be changed</small>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">New Password</label>
+                  <input type="password" class="form-control" formControlName="password"
+                    [class.is-invalid]="f['password'].invalid && f['password'].touched">
+                  <div class="invalid-feedback" *ngIf="f['password'].invalid && f['password'].touched">
+                    Minimum 6 characters.
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" formControlName="confirmPassword"
+                    [class.is-invalid]="profileForm.errors?.['mismatch'] && f['confirmPassword'].touched">
+                  <div class="invalid-feedback"
+                    *ngIf="profileForm.errors?.['mismatch'] && f['confirmPassword'].touched">
+                    Passwords do not match.
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid">
+                    Update Profile
+                  </button>
+
+                  <button type="button" class="btn btn-danger" (click)="deleteAccount()">
+                    Delete Account
+                  </button>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+</div>

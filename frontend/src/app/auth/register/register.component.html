@@ -1,0 +1,61 @@
+<div class="register-container">
+  <div class="register-card">
+
+    <div class="register-header">
+      <h2>Create Account</h2>
+      <p>Join us to manage your tasks</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" formControlName="name" placeholder="John Doe" />
+        <small *ngIf="f['name'].invalid && f['name'].touched">
+          Name is required.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" formControlName="email" placeholder="your@email.com" />
+        <small *ngIf="f['email'].invalid && f['email'].touched">
+          <span *ngIf="f['email'].errors?.['required']">Email is required</span>
+          <span *ngIf="f['email'].errors?.['email']">Enter a valid email</span>
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" formControlName="password" placeholder="••••••" (input)="checkPasswordStrength()" />
+        <small *ngIf="f['password'].invalid && f['password'].touched">
+          <span *ngIf="f['password'].errors?.['required']">Password is required</span>
+          <span *ngIf="f['password'].errors?.['minlength']">At least 6 characters</span>
+        </small>
+        <!-- Strength bar -->
+        <div class="progress mt-2" style="height: 4px;">
+          <div class="progress-bar" [class.bg-danger]="passwordStrength < 30"
+               [class.bg-warning]="passwordStrength >= 30 && passwordStrength < 60"
+               [class.bg-success]="passwordStrength >= 60"
+               [style.width.%]="passwordStrength" role="progressbar"></div>
+        </div>
+        <small class="text-muted">Password strength: {{passwordStrengthText}}</small>
+      </div>
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" placeholder="••••••" />
+        <small *ngIf="registerForm.errors?.['mismatch'] && f['confirmPassword'].touched">
+          Passwords do not match.
+        </small>
+      </div>
+
+      <button type="submit" class="btn-register" [disabled]="registerForm.invalid">Sign Up</button>
+    </form>
+
+    <div class="register-footer">
+      <p>Already have an account? <a routerLink="/login">Sign in</a></p>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,50 @@
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+.modal {
+  z-index: 1050 !important;
+}
+.modal-content {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2);
+}
+.modal-header {
+  border-bottom: 2px solid #e9ecef;
+  padding: 1.25rem 1.5rem;
+}
+.modal-footer {
+  border-top: 2px solid #e9ecef;
+  padding: 1.25rem 1.5rem;
+}
+.form-label {
+  font-weight: 500;
+  color: #2c3e50;
+}
+.form-control, .form-select {
+  border-radius: 12px;
+  border: 1px solid #dee2e6;
+  padding: 10px 16px;
+  background: #f8f9fa;
+}
+.form-control:focus, .form-select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74,144,226,0.1);
+}
+.btn-primary {
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  border: none;
+  border-radius: 12px;
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(74,144,226,0.3);
+}
+.btn-secondary {
+  border-radius: 12px;
+  padding: 8px 20px;
+  font-weight: 500;
+}
