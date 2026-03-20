@@ -1,6 +1,6 @@
 #  Task Manager Application
 
-    A full‑stack task management application with **Spring Boot** backend, **Angular** frontend, MySQL database, and JWT authentication. The project is fully          containerized with **Docker Compose** for easy setup and deployment.
+    A full‑stack task management application with Spring Boot backend, Angular frontend, MySQL database, and JWT authentication. The project is fully          containerized with Docker Compose for easy setup and deployment.
 
   ##  🚀 Features
 
@@ -20,6 +20,7 @@
     | Frontend       | Angular 17, Bootstrap 5, RxJS                                |
     | Database       | MySQL 8                                                      |
     | Container      | Docker, Docker Compose                                       |
+    
   ##  📁 Project Structure
 
     task-manager/
