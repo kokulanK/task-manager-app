@@ -1,26 +1,25 @@
-<<<<<<< HEAD
 #  Task Manager Application
 
-    A full‑stack task management application with **Spring Boot** backend, **Angular** frontend, **MySQL** database, and **JWT** authentication. The project is fully containerized with **Docker Compose** for easy setup and deployment.
+    A full‑stack task management application with **Spring Boot** backend, **Angular** frontend, MySQL database, and JWT authentication. The project is fully          containerized with **Docker Compose** for easy setup and deployment.
 
   ##  🚀 Features
 
-    - **User Authentication** – Register, login, and JWT‑based session management.
-    - **Task Management** – Create, read, update, delete tasks with priority (HIGH / MEDIUM / LOW) and status (TO_DO / IN_PROGRESS / DONE).
-    - **Smart Sorting** – Tasks are grouped by status (In Progress → To Do → Done) and sorted by priority within each group.
-    - **Inline Updates** – Change task status or priority directly from the task list.
-    - **Search & Filters** – Search by title, filter by status and priority.
-    - **User Profile** – Update name and password, delete account.
-    - **Responsive UI** – Clean, modern design that works on desktop, tablet, and mobile.
-    - **Dockerized** – Run the entire stack with a single `docker-compose up` command.
+    - User Authentication – Register, login, and JWT‑based session management.
+    - Task Management – Create, read, update, delete tasks with priority (HIGH / MEDIUM / LOW) and status (TO_DO / IN_PROGRESS / DONE).
+    - Smart Sorting – Tasks are grouped by status (In Progress → To Do → Done) and sorted by priority within each group.
+    - Inline Updates – Change task status or priority directly from the task list.
+    - Search & Filters – Search by title, filter by status and priority.
+    - User Profile – Update name and password, delete account.
+    - Responsive UI – Clean, modern design that works on desktop, tablet, and mobile.
+    - Dockerized – Run the entire stack with a single `docker-compose up` command.
   ##  🛠️ Tech Stack
 
     | Layer          | Technologies                                                 |
     |----------------|--------------------------------------------------------------|
-    | **Backend**    | Spring Boot 3.1, Spring Security, JWT, Spring Data JPA, MySQL|
-    | **Frontend**   | Angular 17, Bootstrap 5, RxJS                                |
-    | **Database**   | MySQL 8                                                      |
-    | **Container**  | Docker, Docker Compose                                       |
+    | Backend        | Spring Boot 3.1, Spring Security, JWT, Spring Data JPA, MySQL|
+    | Frontend       | Angular 17, Bootstrap 5, RxJS                                |
+    | Database       | MySQL 8                                                      |
+    | Container      | Docker, Docker Compose                                       |
   ##  📁 Project Structure
 
     task-manager/
@@ -88,6 +87,7 @@
 
       cd frontend
       npm install
+      
     Start the development server
 
     npm start
@@ -100,13 +100,13 @@
 
     Method      Endpoint	              Description	              Auth
     
-    POST	      /auth/register	        Register a new user	      No
-    POST	      /auth/login	            Login and get JWT	        No
-    GET	        /tasks	                Get all tasks of user	    Yes
-    POST	      /tasks	                Create a task	            Yes
-    PUT	        /tasks/{id}	            Update a task	            Yes
-    DELETE	    /tasks/{id}	            Delete a task	            Yes
-    GET	        /user/profile	          Get user profile	        Yes
+    POST	    /auth/register	          Register a new user	      No
+    POST	    /auth/login	              Login and get JWT	          No
+    GET	        /tasks	                  Get all tasks of user	      Yes
+    POST	    /tasks	                  Create a task	              Yes
+    PUT	        /tasks/{id}	              Update a task	              Yes
+    DELETE	    /tasks/{id}	              Delete a task	              Yes
+    GET	        /user/profile	          Get user profile	          Yes
     PUT	        /user/profile	          Update profile	          Yes
     DELETE	    /user/account	          Delete account	          Yes
 
@@ -198,6 +198,7 @@ Profile Page
     Frontend: Modular components, reactive forms, services with HTTP interceptors, and guards for route protection.
     
     Both: Clean, consistent naming, and comments where necessary.
+    
   ##  🐞 Troubleshooting
 
     Container fails to start – Ensure ports 8080, 8087, and 3307 are free.
@@ -219,62 +220,9 @@ Profile Page
   ##  🤝 Contributing
 
     Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-    Built by
-
+    
+    Built by:-
     Kokulan Kugathasan
     📞 +94 76 752 0033
     ✉️ kokulankugathasan2003@gmail.com
     🔗 linkedin.com/in/kokulan-kugathasan
-=======
-version: '3.8'
-
-services:
-  db:
-    image: mysql:8.0
-    container_name: taskmanager-db
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: taskmanager
-    ports:
-      - "3307:3306"  # Map to different host port to avoid conflict if local MySQL runs
-    volumes:
-      - db_data:/var/lib/mysql
-    networks:
-      - taskmanager-net
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      timeout: 20s
-      retries: 10
-
-  backend:
-    build: ./backend
-    container_name: taskmanager-backend
-    ports:
-      - "8087:8080"   # Host port 8087 maps to container port 8080
-    depends_on:
-      db:
-        condition: service_healthy
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/taskmanager?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: rootpassword
-    networks:
-      - taskmanager-net
-
-  frontend:
-    build: ./frontend
-    container_name: taskmanager-frontend
-    ports:
-      - "4200:80"   # Access frontend at http://localhost:4200
-    depends_on:
-      - backend
-    networks:
-      - taskmanager-net
-
-volumes:
-  db_data:
-
-networks:
-  taskmanager-net:
-    driver: bridge
->>>>>>> 972fb40 (Initial commit: added backend and frontend project structure)
